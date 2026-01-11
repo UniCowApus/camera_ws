@@ -6,7 +6,7 @@ Hardware
 - 3D printed camera mount
 - Printed [characu board](https://docs.opencv.org/4.x/df/d4a/tutorial_charuco_detection.html] on 8.5x11)
 
-![Epic setup](camera_ws/image.png)
+![Epic setup](image.png)
 
 
 Software
