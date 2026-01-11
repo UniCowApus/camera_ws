@@ -6,12 +6,16 @@ Hardware
 - 3D printed camera mount
 - Printed [characu board](https://docs.opencv.org/4.x/df/d4a/tutorial_charuco_detection.html] on 8.5x11)
 
+![Epic setup](camera_ws/image.png)
+
+
 Software
 - The pi is running ubuntu 24.04LTS. In order to use the camera module with the board mounted connectors, rpi foundation has forked libcamera, and includes with with raspbian, but raspbian doesn't support ros2 natively, so you cannot use raspbian. Libcamera (now rpicam) is not shipped or built for ubuntu with support for boardmounted connectors and cannot be installed by package manager. You must compile this library yourself, so I've included it as a submodule.
 - I also publish my images using two instances of a camera_ros node. I have forked it and included it as as submodule as well with a stereo camera launch file, and stereo camera intrinsics/extrinsics config files as well, which are loaded and published as camera_info messages. When you install rosdeps for this, it will try and use your system libcamera, or overwrite the forked one that you just compiled, but this can be avoided with -skip-keys libcamera.
 - Additionally, you will need to enable overlays for the camera drivers by adding:
 
 dtoverlay=imx219,cam0
+
 dtoverlay=imx219,cam1 
 
 to the [all] section of /boot/firmware/config.txt, and reboot.
